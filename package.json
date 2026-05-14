@@ -1,7 +1,7 @@
 {
   "name": "formguard",
-  "version": "0.1.0",
-  "description": "A lightweight and modular form validation library using data attributes.",
+  "version": "1.0.0",
+  "description": "A simple and modular JavaScript library for form validation using data attributes.",
   "main": "dist/formguard.min.js",
   "scripts": {
     "build": "webpack --config webpack.config.js"
