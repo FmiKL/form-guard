@@ -1,6 +1,6 @@
 # Form Guard
 
-A lightweight and modular JavaScript library for form validation using data attributes.
+A simple and modular JavaScript library for form validation using data attributes.
 
 ## Installation
 
@@ -24,7 +24,16 @@ Initialize Form Guard in JavaScript:
 
 ## Validators
 
+- **CheckboxValidator**: Validates checkbox fields and checkbox groups with optional minimum and maximum selections.
+- **ConfirmationValidator**: Validates that a field matches another field using `data-match`.
+- **DateValidator**: Validates date fields with optional minimum and maximum dates.
 - **EmailValidator**: Validates email fields.
+- **FileValidator**: Validates file fields with optional accepted extensions, MIME types, and maximum size.
+- **NumberValidator**: Validates number fields with optional minimum, maximum, and step rules.
 - **PasswordValidator**: Validates password fields with custom rules.
 - **PhoneValidator**: Validates phone number fields.
+- **RadioValidator**: Validates radio groups.
+- **RequiredValidator**: Validates required fields.
+- **SelectValidator**: Validates select fields.
 - **TextValidator**: Validates text fields with minimum length.
+- **UrlValidator**: Validates URL fields.
