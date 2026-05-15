@@ -8,19 +8,19 @@ export default class FileValidator extends FieldValidator {
         const allowedTypes = this.getAllowedValues('data-accept-types');
 
         if (files.length === 0) {
-            this.setError("Veuillez sélectionner un fichier.");
+            this.setError(this.getMessage('fileRequired'));
             return false;
         }
 
         const invalidFile = files.find(file => !this.isAllowedFile(file, allowedExtensions, allowedTypes));
         if (invalidFile) {
-            this.setError("Le type de fichier sélectionné n'est pas autorisé.");
+            this.setError(this.getMessage('fileType'));
             return false;
         }
 
         const oversizedFile = files.find(file => maxSize !== null && file.size > maxSize);
         if (oversizedFile) {
-            this.setError(`Le fichier ne doit pas dépasser ${this.field.getAttribute('data-max-size')}.`);
+            this.setError(this.getMessage('fileSize', { maxSize: this.field.getAttribute('data-max-size') }));
             return false;
         }
 

@@ -6,12 +6,12 @@ export default class ConfirmationValidator extends FieldValidator {
         const fieldToMatch = selector ? document.querySelector(selector) : null;
 
         if (!fieldToMatch) {
-            this.setError("Le champ à confirmer est introuvable.");
+            this.setError(this.getMessage('confirmationMissing'));
             return false;
         }
 
         if (this.field.value !== fieldToMatch.value) {
-            this.setError("Les valeurs ne correspondent pas.");
+            this.setError(this.getMessage('confirmationMismatch'));
             return false;
         }
 

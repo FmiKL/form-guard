@@ -7,12 +7,12 @@ export default class CheckboxValidator extends FieldValidator {
         const maxChecked = parseInt(this.field.getAttribute('data-max-checked'), 10) || null;
 
         if (checkedFields.length < minChecked) {
-            this.setError(`Veuillez sélectionner au moins ${minChecked} option${minChecked > 1 ? 's' : ''}.`);
+            this.setError(this.getMessage('checkboxMin', { minChecked }));
             return false;
         }
 
         if (maxChecked !== null && checkedFields.length > maxChecked) {
-            this.setError(`Veuillez sélectionner au maximum ${maxChecked} option${maxChecked > 1 ? 's' : ''}.`);
+            this.setError(this.getMessage('checkboxMax', { maxChecked }));
             return false;
         }
 

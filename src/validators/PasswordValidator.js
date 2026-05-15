@@ -18,7 +18,7 @@ export default class PasswordValidator extends FieldValidator {
         const regex = new RegExp(pattern);
 
         if (!regex.test(this.field.value)) {
-            this.setError(`Le mot de passe doit contenir au moins ${minLength} caractères${requireLetter ? ', dont des lettres' : ''}${requireNumber ? ' et des chiffres' : ''}.`);
+            this.setError(this.getMessage('password', { minLength, requireLetter, requireNumber }));
             return false;
         }
 

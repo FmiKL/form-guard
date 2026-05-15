@@ -7,17 +7,17 @@ export default class DateValidator extends FieldValidator {
         const maxDate = this.getDateValue(this.field.getAttribute('data-max-date'));
 
         if (!value) {
-            this.setError("Veuillez entrer une date valide.");
+            this.setError(this.getMessage('date'));
             return false;
         }
 
         if (minDate && value < minDate) {
-            this.setError(`La date doit être postérieure ou égale au ${this.field.getAttribute('data-min-date')}.`);
+            this.setError(this.getMessage('dateMin', { minDate: this.field.getAttribute('data-min-date') }));
             return false;
         }
 
         if (maxDate && value > maxDate) {
-            this.setError(`La date doit être antérieure ou égale au ${this.field.getAttribute('data-max-date')}.`);
+            this.setError(this.getMessage('dateMax', { maxDate: this.field.getAttribute('data-max-date') }));
             return false;
         }
 

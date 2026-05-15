@@ -6,7 +6,7 @@ export default class RequiredValidator extends FieldValidator {
         const isValid = isCheckedField ? this.field.checked : this.field.value.trim() !== '';
 
         if (!isValid) {
-            this.setError("Ce champ est obligatoire.");
+            this.setError(this.getMessage('required'));
             return false;
         }
 

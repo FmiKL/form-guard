@@ -5,7 +5,7 @@ export default class EmailValidator extends FieldValidator {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!emailPattern.test(this.field.value)) {
-            this.setError("Veuillez entrer une adresse e-mail valide.");
+            this.setError(this.getMessage('email'));
             return false;
         }
 

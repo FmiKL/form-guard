@@ -5,7 +5,7 @@ export default class RadioValidator extends FieldValidator {
         const isChecked = this.getGroupFields().some(field => field.checked);
 
         if (!isChecked) {
-            this.setError("Veuillez sélectionner une option.");
+            this.setError(this.getMessage('radio'));
             return false;
         }
 

@@ -7,7 +7,7 @@ export default class SelectValidator extends FieldValidator {
             : this.field.value !== '';
 
         if (!hasValue) {
-            this.setError("Veuillez sélectionner une option.");
+            this.setError(this.getMessage('select'));
             return false;
         }
 
