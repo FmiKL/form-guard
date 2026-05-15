@@ -37,3 +37,7 @@ Initialize Form Guard in JavaScript:
 - **SelectValidator**: Validates select fields.
 - **TextValidator**: Validates text fields with minimum length.
 - **UrlValidator**: Validates URL fields.
+
+## License
+
+[MIT](LICENSE)
