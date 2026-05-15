@@ -14,7 +14,7 @@ import TextValidator from '../validators/TextValidator.js';
 import UrlValidator from '../validators/UrlValidator.js';
 
 export default class FormGuard {
-    static init() {
+    static init(options = {}) {
         document.addEventListener('DOMContentLoaded', () => {
             const forms = document.querySelectorAll('form');
 
@@ -29,43 +29,43 @@ export default class FormGuard {
 
                         switch (type) {
                             case 'checkbox':
-                                validator = new CheckboxValidator(field);
+                                validator = new CheckboxValidator(field, options);
                                 break;
                             case 'confirmation':
-                                validator = new ConfirmationValidator(field);
+                                validator = new ConfirmationValidator(field, options);
                                 break;
                             case 'date':
-                                validator = new DateValidator(field);
+                                validator = new DateValidator(field, options);
                                 break;
                             case 'email':
-                                validator = new EmailValidator(field);
+                                validator = new EmailValidator(field, options);
                                 break;
                             case 'file':
-                                validator = new FileValidator(field);
+                                validator = new FileValidator(field, options);
                                 break;
                             case 'number':
-                                validator = new NumberValidator(field);
+                                validator = new NumberValidator(field, options);
                                 break;
                             case 'password':
-                                validator = new PasswordValidator(field);
+                                validator = new PasswordValidator(field, options);
                                 break;
                             case 'phone':
-                                validator = new PhoneValidator(field);
+                                validator = new PhoneValidator(field, options);
                                 break;
                             case 'radio':
-                                validator = new RadioValidator(field);
+                                validator = new RadioValidator(field, options);
                                 break;
                             case 'required':
-                                validator = new RequiredValidator(field);
+                                validator = new RequiredValidator(field, options);
                                 break;
                             case 'select':
-                                validator = new SelectValidator(field);
+                                validator = new SelectValidator(field, options);
                                 break;
                             case 'text':
-                                validator = new TextValidator(field);
+                                validator = new TextValidator(field, options);
                                 break;
                             case 'url':
-                                validator = new UrlValidator(field);
+                                validator = new UrlValidator(field, options);
                                 break;
                             default:
                                 return;
@@ -86,7 +86,7 @@ export default class FormGuard {
 
                 form.querySelectorAll('[data-validate]').forEach(field => {
                     const clearFieldError = () => {
-                        const validator = new FieldValidator(field);
+                        const validator = new FieldValidator(field, options);
                         validator.clearError();
                     };
 
