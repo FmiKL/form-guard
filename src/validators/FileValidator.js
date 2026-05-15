@@ -12,15 +12,24 @@ export default class FileValidator extends FieldValidator {
             return false;
         }
 
-        const invalidFile = files.find(file => !this.isAllowedFile(file, allowedExtensions, allowedTypes));
+        const invalidFile = files.find(
+            (file) =>
+                !this.isAllowedFile(file, allowedExtensions, allowedTypes),
+        );
         if (invalidFile) {
             this.setError(this.getMessage('fileType'));
             return false;
         }
 
-        const oversizedFile = files.find(file => maxSize !== null && file.size > maxSize);
+        const oversizedFile = files.find(
+            (file) => maxSize !== null && file.size > maxSize,
+        );
         if (oversizedFile) {
-            this.setError(this.getMessage('fileSize', { maxSize: this.field.getAttribute('data-max-size') }));
+            this.setError(
+                this.getMessage('fileSize', {
+                    maxSize: this.field.getAttribute('data-max-size'),
+                }),
+            );
             return false;
         }
 
@@ -62,8 +71,9 @@ export default class FileValidator extends FieldValidator {
             return [];
         }
 
-        return value.split(',')
-            .map(item => item.trim().toLowerCase())
+        return value
+            .split(',')
+            .map((item) => item.trim().toLowerCase())
             .filter(Boolean);
     }
 
@@ -75,7 +85,10 @@ export default class FileValidator extends FieldValidator {
             return true;
         }
 
-        return this.matchesExtension(file, allowedExtensions) || this.matchesType(file, allowedTypes);
+        return (
+            this.matchesExtension(file, allowedExtensions) ||
+            this.matchesType(file, allowedTypes)
+        );
     }
 
     matchesExtension(file, allowedExtensions) {
@@ -85,7 +98,7 @@ export default class FileValidator extends FieldValidator {
     }
 
     matchesType(file, allowedTypes) {
-        return allowedTypes.some(type => {
+        return allowedTypes.some((type) => {
             if (type.endsWith('/*')) {
                 return file.type.startsWith(type.replace('*', ''));
             }

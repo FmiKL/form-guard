@@ -16,7 +16,7 @@ Initialize Form Guard in JavaScript:
 
 ```html
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         FormGuard.init();
     });
 </script>

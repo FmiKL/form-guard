@@ -2,7 +2,7 @@ import FieldValidator from '../core/FieldValidator.js';
 
 export default class RadioValidator extends FieldValidator {
     validate() {
-        const isChecked = this.getGroupFields().some(field => field.checked);
+        const isChecked = this.getGroupFields().some((field) => field.checked);
 
         if (!isChecked) {
             this.setError(this.getMessage('radio'));
@@ -20,7 +20,8 @@ export default class RadioValidator extends FieldValidator {
 
         const context = this.field.form || document;
 
-        return Array.from(context.querySelectorAll('input[type="radio"]'))
-            .filter(field => field.name === this.field.name);
+        return Array.from(
+            context.querySelectorAll('input[type="radio"]'),
+        ).filter((field) => field.name === this.field.name);
     }
 }

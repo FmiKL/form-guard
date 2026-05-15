@@ -3,8 +3,12 @@ import FieldValidator from '../core/FieldValidator.js';
 export default class DateValidator extends FieldValidator {
     validate() {
         const value = this.getDateValue(this.field.value);
-        const minDate = this.getDateValue(this.field.getAttribute('data-min-date'));
-        const maxDate = this.getDateValue(this.field.getAttribute('data-max-date'));
+        const minDate = this.getDateValue(
+            this.field.getAttribute('data-min-date'),
+        );
+        const maxDate = this.getDateValue(
+            this.field.getAttribute('data-max-date'),
+        );
 
         if (!value) {
             this.setError(this.getMessage('date'));
@@ -12,12 +16,20 @@ export default class DateValidator extends FieldValidator {
         }
 
         if (minDate && value < minDate) {
-            this.setError(this.getMessage('dateMin', { minDate: this.field.getAttribute('data-min-date') }));
+            this.setError(
+                this.getMessage('dateMin', {
+                    minDate: this.field.getAttribute('data-min-date'),
+                }),
+            );
             return false;
         }
 
         if (maxDate && value > maxDate) {
-            this.setError(this.getMessage('dateMax', { maxDate: this.field.getAttribute('data-max-date') }));
+            this.setError(
+                this.getMessage('dateMax', {
+                    maxDate: this.field.getAttribute('data-max-date'),
+                }),
+            );
             return false;
         }
 

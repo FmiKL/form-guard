@@ -2,9 +2,13 @@ import FieldValidator from '../core/FieldValidator.js';
 
 export default class CheckboxValidator extends FieldValidator {
     validate() {
-        const checkedFields = this.getGroupFields().filter(field => field.checked);
-        const minChecked = parseInt(this.field.getAttribute('data-min-checked'), 10) || 1;
-        const maxChecked = parseInt(this.field.getAttribute('data-max-checked'), 10) || null;
+        const checkedFields = this.getGroupFields().filter(
+            (field) => field.checked,
+        );
+        const minChecked =
+            parseInt(this.field.getAttribute('data-min-checked'), 10) || 1;
+        const maxChecked =
+            parseInt(this.field.getAttribute('data-max-checked'), 10) || null;
 
         if (checkedFields.length < minChecked) {
             this.setError(this.getMessage('checkboxMin', { minChecked }));
@@ -27,7 +31,8 @@ export default class CheckboxValidator extends FieldValidator {
 
         const context = this.field.form || document;
 
-        return Array.from(context.querySelectorAll('input[type="checkbox"]'))
-            .filter(field => field.name === this.field.name);
+        return Array.from(
+            context.querySelectorAll('input[type="checkbox"]'),
+        ).filter((field) => field.name === this.field.name);
     }
 }

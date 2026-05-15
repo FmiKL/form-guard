@@ -3,9 +3,15 @@ import FieldValidator from '../core/FieldValidator.js';
 export default class NumberValidator extends FieldValidator {
     validate() {
         const value = Number(this.field.value);
-        const min = this.field.hasAttribute('data-min') ? Number(this.field.getAttribute('data-min')) : null;
-        const max = this.field.hasAttribute('data-max') ? Number(this.field.getAttribute('data-max')) : null;
-        const step = this.field.hasAttribute('data-step') ? Number(this.field.getAttribute('data-step')) : null;
+        const min = this.field.hasAttribute('data-min')
+            ? Number(this.field.getAttribute('data-min'))
+            : null;
+        const max = this.field.hasAttribute('data-max')
+            ? Number(this.field.getAttribute('data-max'))
+            : null;
+        const step = this.field.hasAttribute('data-step')
+            ? Number(this.field.getAttribute('data-step'))
+            : null;
 
         if (this.field.value.trim() === '' || Number.isNaN(value)) {
             this.setError(this.getMessage('number'));

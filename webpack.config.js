@@ -1,13 +1,13 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/index.js',
-  output: {
-    filename: 'formguard.js',
-    path: path.resolve(__dirname, 'dist'),
-  },
-  mode: 'production',
-  optimization: {
-    minimize: true,
-  },
+    entry: './src/index.js',
+    output: {
+        filename: 'formguard.js',
+        path: path.resolve(__dirname, 'dist'),
+    },
+    mode: 'production',
+    optimization: {
+        minimize: true,
+    },
 };

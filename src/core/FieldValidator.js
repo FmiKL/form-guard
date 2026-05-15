@@ -11,7 +11,7 @@ export default class FieldValidator {
     }
 
     clearError() {
-        this.field.setCustomValidity("");
+        this.field.setCustomValidity('');
     }
 
     validate() {

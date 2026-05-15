@@ -1,14 +1,21 @@
 {
-  "name": "formguard",
-  "version": "1.1.0",
-  "description": "A simple and modular JavaScript library for form validation using data attributes.",
-  "main": "dist/formguard.min.js",
-  "scripts": {
-    "build": "webpack --config webpack.config.js"
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "webpack": "^5.0.0",
-    "webpack-cli": "^4.0.0"
-  }
+    "name": "formguard",
+    "version": "1.1.0",
+    "description": "A simple and modular JavaScript library for form validation using data attributes.",
+    "main": "dist/formguard.min.js",
+    "scripts": {
+        "build": "webpack --config webpack.config.js",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "@eslint/js": "^9.27.0",
+        "eslint": "^9.27.0",
+        "prettier": "^3.8.3",
+        "webpack": "^5.0.0",
+        "webpack-cli": "^4.0.0"
+    }
 }

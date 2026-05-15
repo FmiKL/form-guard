@@ -18,21 +18,27 @@ export default class FormGuard {
         document.addEventListener('DOMContentLoaded', () => {
             const forms = document.querySelectorAll('form');
 
-            forms.forEach(form => {
-                form.addEventListener('submit', event => {
+            forms.forEach((form) => {
+                form.addEventListener('submit', (event) => {
                     let isValid = true;
                     const fields = form.querySelectorAll('[data-validate]');
 
-                    fields.forEach(field => {
+                    fields.forEach((field) => {
                         const type = field.getAttribute('data-validate');
                         let validator;
 
                         switch (type) {
                             case 'checkbox':
-                                validator = new CheckboxValidator(field, options);
+                                validator = new CheckboxValidator(
+                                    field,
+                                    options,
+                                );
                                 break;
                             case 'confirmation':
-                                validator = new ConfirmationValidator(field, options);
+                                validator = new ConfirmationValidator(
+                                    field,
+                                    options,
+                                );
                                 break;
                             case 'date':
                                 validator = new DateValidator(field, options);
@@ -47,7 +53,10 @@ export default class FormGuard {
                                 validator = new NumberValidator(field, options);
                                 break;
                             case 'password':
-                                validator = new PasswordValidator(field, options);
+                                validator = new PasswordValidator(
+                                    field,
+                                    options,
+                                );
                                 break;
                             case 'phone':
                                 validator = new PhoneValidator(field, options);
@@ -56,7 +65,10 @@ export default class FormGuard {
                                 validator = new RadioValidator(field, options);
                                 break;
                             case 'required':
-                                validator = new RequiredValidator(field, options);
+                                validator = new RequiredValidator(
+                                    field,
+                                    options,
+                                );
                                 break;
                             case 'select':
                                 validator = new SelectValidator(field, options);
@@ -84,7 +96,7 @@ export default class FormGuard {
                     }
                 });
 
-                form.querySelectorAll('[data-validate]').forEach(field => {
+                form.querySelectorAll('[data-validate]').forEach((field) => {
                     const clearFieldError = () => {
                         const validator = new FieldValidator(field, options);
                         validator.clearError();
