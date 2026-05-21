@@ -16,10 +16,35 @@ Initialize Form Guard in JavaScript:
 
 ```html
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        FormGuard.init();
-    });
+    FormGuard.init();
 </script>
+```
+
+## HTML Examples
+
+Email:
+
+```html
+<input type="email" data-validate="email">
+```
+
+Password:
+
+```html
+<input type="password" data-validate="password" data-min-length="8">
+```
+
+Number:
+
+```html
+<input type="number" data-validate="number" data-min="1" data-max="10">
+```
+
+Confirmation:
+
+```html
+<input id="password" type="password" data-validate="password">
+<input type="password" data-validate="confirmation" data-match="#password">
 ```
 
 ## Validators
